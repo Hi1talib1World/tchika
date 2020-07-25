@@ -13,6 +13,7 @@
 import AppNavigation from "@/components/AppNavigation";
 import Sidebar from "@/components/Sidebar";
 
+
 export default {
   name: "App",
   components: {
@@ -29,7 +30,7 @@ export default {
     }
   }
 
-    computed: {
+    ,computed: {
         
     created() {
         const staticSidebar = JSON.parse(localStorage.getItem('sidebarStatic'));
@@ -48,6 +49,7 @@ export default {
         window.removeEventListener('resize', this.handleWindowResize);
     }
 
+  }
 };
 </script>
 
