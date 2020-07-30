@@ -13,7 +13,6 @@
 import AppNavigation from "@/components/AppNavigation";
 import Sidebar from "@/components/Sidebar";
 
-
 export default {
   name: "App",
   components: {
@@ -28,27 +27,25 @@ export default {
         this.changeSidebarActive(null);
       }
     }
-  }
+  },
 
-    ,computed: {
-        
+  computed: {
     created() {
-        const staticSidebar = JSON.parse(localStorage.getItem('sidebarStatic'));
-        if (staticSidebar) {
+      const staticSidebar = JSON.parse(localStorage.getItem("sidebarStatic"));
+      if (staticSidebar) {
         this.$store.state.layout.sidebarStatic = true;
-        } else if (!this.sidebarClose) {
+      } else if (!this.sidebarClose) {
         setTimeout(() => {
-            this.switchSidebar(true);
-            this.changeSidebarActive(null);
+          this.switchSidebar(true);
+          this.changeSidebarActive(null);
         }, 2500);
-        }
-        this.handleWindowResize();
-        window.addEventListener('resize', this.handleWindowResize);
+      }
+      this.handleWindowResize();
+      window.addEventListener("resize", this.handleWindowResize);
     },
     beforeDestroy() {
-        window.removeEventListener('resize', this.handleWindowResize);
+      window.removeEventListener("resize", this.handleWindowResize);
     }
-
   }
 };
 </script>
