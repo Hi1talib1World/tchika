@@ -7,6 +7,10 @@ Vue.use(BootstrapVue);
 Vue.use(VueTouch);
 Vue.use(Trend);
 Vue.component('Widget', Widget);
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyB7OXmzfQYua_1LEhRdqsoYzyJOPh9hGLg',  // must change to own key
+});
 new Vue({
   vuetify,
   render: h => h(App)
