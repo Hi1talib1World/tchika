@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <app-navigation></app-navigation>
-  <Sidebar />
+    <Sidebar />
 
     <v-content transition="slide-x-transition">
       <router-view> </router-view>
@@ -12,7 +12,7 @@
 <script>
 import AppNavigation from "@/components/AppNavigation";
 import Sidebar from "@/components/Sidebar";
-import './Layout.scss';
+import "./Layout.scss";
 
 export default {
   name: "App",
