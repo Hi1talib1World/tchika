@@ -3,7 +3,7 @@
             <app-NavBar >
                 <div class='navbar'>
                     <div class="logo">
-                        <img src="../assets/img/Slack_Icon.png" alt="Slack-Icon">
+                        <img src="../assets/img/tchika-border.png" alt="Slack-Icon">
                     </div>
                     <ul>
                         <li><a href="#">Home</a></li>
@@ -48,7 +48,7 @@ export default {
     align-items: center;
     top:0;
     width: 100%;
-    background-color: rgb(62, 58, 84);
+    background-color: #30004C;
     font-size:1.6rem;
     min-height: 8rem;
     --main-color:rgb(161, 156, 156);
