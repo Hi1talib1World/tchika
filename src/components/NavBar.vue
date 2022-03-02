@@ -34,7 +34,7 @@
 export default {
         data:function(){
             return{
-                userName:'Funky Chicken'
+                userName:'Hicham Outaleb'
             }
         }
 }
