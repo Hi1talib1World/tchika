@@ -12,6 +12,8 @@
     "chart.js": "^3.8.0",
     "core-js": "^3.4.4",
     "vue": "^2.6.10",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^3.5.4",
     "vue-video-player": "^5.0.2",
     "vuetify": "^2.1.0",
     "vuetrend": "^0.3.4",
