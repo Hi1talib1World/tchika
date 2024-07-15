@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <figure>
-            <img v-bind:src="logo" width="50%" height="20%" />
+            <img :src="logo" width="50%" height="20%" />
           </figure>
 
           <div class="column is-6 is-offset-3">
@@ -17,15 +17,9 @@
               {{ subtitle2 }}
             </h2>
             <div class="is-centered">
-              <a v-bind:href="bulmaWebsite" class="button is-primary"
-                >Visit Bulma</a
-              >
-              <a v-bind:href="vueWebsite" class="button is-danger"
-                >Visit VueJS</a
-              >
-              <a v-bind:href="repoLink" class="button is-info"
-                >Visit Repository</a
-              >
+              <a :href="bulmaWebsite" class="button is-primary">Visit Bulma</a>
+              <a :href="vueWebsite" class="button is-danger">Visit VueJS</a>
+              <a :href="repoLink" class="button is-info">Visit Repository</a>
             </div>
           </div>
         </div>
@@ -34,28 +28,23 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import logo from "./../assets/logo-white.png";
-export default {
-  data: function() {
-    return {
-      logo: logo,
-      title: "Hello Stranger !!!!",
-      subtitle1:
-        "A demo website based on frameworks Bulma (CSS) and Vue JS (JS)",
-      subtitle2: "Feel free to navigate around and checkout the page",
-      bulmaWebsite: "https://bulma.io",
-      vueWebsite: "https://vuejs.org/",
-      repoLink:
-        "https://github.com/faisaltheparttimecoder/bulma-vuejs-demo-website"
-    };
-  }
-};
+
+const title = "Hello Stranger !!!!";
+const subtitle1 = "A demo website based on frameworks Bulma (CSS) and Vue JS (JS)";
+const subtitle2 = "Feel free to navigate around and checkout the page";
+const bulmaWebsite = "https://bulma.io";
+const vueWebsite = "https://vuejs.org/";
+const repoLink = "https://github.com/faisaltheparttimecoder/bulma-vuejs-demo-website";
 </script>
 
 <style scoped>
 .hero.is-info {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
     url("https://unsplash.it/1200/900?random") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
