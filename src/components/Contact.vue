@@ -35,7 +35,11 @@
         </article>
 
         <div v-if="showForm">
-          <div v-for="formContent in formContents" class="field">
+          <div
+            v-for="(formContent, index) in formContents"
+            :key="index"
+            class="field"
+          >
             <label class="label">{{ formContent }}</label>
             <div class="control">
               <input
@@ -62,7 +66,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button v-on:click="sumbitPost" class="button is-primary">
+              <button v-on:click="submitPost" class="button is-primary">
                 Submit
               </button>
             </div>
@@ -89,8 +93,10 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  data: function() {
+  data() {
     return {
       title: "Send us some love !!!",
       subtitle:
@@ -117,25 +123,25 @@ export default {
     };
   },
   methods: {
-    clearPost: function() {
-      return (this.userInput = this.orgUserInput);
+    clearPost() {
+      this.userInput = { ...this.orgUserInput };
     },
-    sumbitPost: function() {
+    submitPost() {
       if (
-        this.userInput.Message == "" ||
-        this.userInput.Name == "" ||
-        this.userInput.Email == ""
+        this.userInput.Message === "" ||
+        this.userInput.Name === "" ||
+        this.userInput.Email === ""
       ) {
-        return (this.formError = true);
+        this.formError = true;
       } else {
         this.formError = false;
-        this.$http
+        axios
           .post("https://jsonplaceholder.typicode.com/posts", {
             title: this.userInput.Subject,
             body: this.userInput.Message,
             userId: 1
           })
-          .then(function(data) {
+          .then(() => {
             this.showForm = false;
             this.clearPost();
           });

@@ -64,7 +64,7 @@
         </h1>
 
         <!--Populate random comments-->
-        <article v-for="fakeComment in fakeComments" class="media">
+        <article v-for="fakeComment in fakeComments" class="media" :key="item.id">
           <figure class="media-left">
             <p class="image is-64x64">
               <img src="https://bulma.io/images/placeholders/128x128.png" />
