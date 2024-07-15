@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service  serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node server.js"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001642",
     "chart.js": "^3.8.0",
     "core-js": "^3.4.4",
     "vue": "^2.6.10",
+    "vue-loader": "^17.4.2",
     "vue-resource": "^1.5.3",
     "vue-router": "^3.5.4",
     "vue-video-player": "^5.0.2",
@@ -20,8 +22,9 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.11",
-    "@babel/preset-env": "^7.22.10",
+    "@babel/core": "^7.24.8",
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-react": "^7.24.7",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
@@ -38,7 +41,7 @@
     "vue-cli-plugin-vuetify": "^2.0.3",
     "vue-template-compiler": "^2.6.10",
     "vuetify-loader": "^1.3.0",
-    "webpack": "^5.88.2"
+    "webpack": "^5.93.0"
   },
   "description": "```\r npm install\r ```",
   "main": ".eslintrc.js",
