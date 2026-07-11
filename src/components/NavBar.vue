@@ -1,123 +1,200 @@
 <template>
-  <div>
-    <app-NavBar>
-      <div class="navbar">
+  <nav class="navbar glass-panel animate-fade-in">
+    <div class="navbar-container">
+      <!-- Logo -->
+      <router-link to="/" class="logo-link">
         <div class="logo">
-          <img src="../assets/img/tchika-border.png" alt="Slack-Icon" />
+          <img src="../assets/img/tchika-border.png" alt="Tchika Logo" />
+          <span class="logo-text">tchika</span>
         </div>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Media</a></li>
-        </ul>
-        <div class="login-user">
-          <p>{{ userName }}</p>
-          <div class="circle">
-            <img src="../assets/img/user.png" alt="User-Image" />
-          </div>
-          <div>
-            <i class="fa fa-cog"></i>
-          </div>
-          <div>
-            <i class="fa fa-asterisk"></i>
-          </div>
+      </router-link>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/news">News</router-link></li>
+        <li><router-link to="/dashboard">Dashboard</router-link></li>
+        <li><router-link to="/media">Media</router-link></li>
+        <li><router-link to="/contact">Contact</router-link></li>
+      </ul>
+
+      <!-- User Profile -->
+      <div class="user-profile">
+        <div class="user-info">
+          <span class="user-name">{{ userName }}</span>
         </div>
+        <div class="avatar-container">
+          <img src="../assets/img/user.png" alt="User Avatar" class="avatar" />
+          <div class="online-indicator"></div>
+        </div>
+        <button class="settings-btn">
+          <i class="mdi mdi-cog"></i>
+        </button>
       </div>
-    </app-NavBar>
-  </div>
+    </div>
+  </nav>
 </template>
 
 <script>
 export default {
-  data: function() {
+  data() {
     return {
-      userName: "Hicham Outaleb"
+      userName: "Hicham Outaleb",
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
 .navbar {
-  position: absolute;
+  position: sticky;
+  top: 1rem;
+  z-index: 100;
+  margin: 0 auto 2rem auto;
+  max-width: 1200px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-secondary);
+}
+
+.navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 0;
   width: 100%;
-  background-color: #30004c;
-  font-size: 1.6rem;
-  min-height: 8rem;
-  --main-color: rgb(161, 156, 156);
 }
-ul {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  flex: 0 0 40%;
-}
-li a {
-  color: var(--main-color);
+
+.logo-link {
   text-decoration: none;
-  border-bottom: solid transparent 2.5px;
-  padding-bottom: 1rem;
+  color: inherit;
 }
-li a:hover {
-  color: white;
-  border-bottom: solid white 2.5px;
-}
-.logo img {
-  width: 5rem;
-  height: 5rem;
-  margin-left: 4.5rem;
-}
-.login-user {
+
+.logo {
   display: flex;
-  justify-content: space-around;
-  margin-right: 5.8rem;
-  min-width: 19%;
-  margin-top: 0.8rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+  padding: 2px;
+  transition: transform var(--transition-normal);
+}
+
+.logo:hover img {
+  transform: rotate(15deg);
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-primary);
+  transition: width var(--transition-fast);
+  border-radius: 2px;
+}
+
+.nav-links a:hover, .nav-links a.router-link-exact-active {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after, .nav-links a.router-link-exact-active::after {
+  width: 100%;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.avatar-container {
   position: relative;
 }
-.login-user p {
-  border-bottom: solid rgb(161, 156, 156) 2.5px;
-  padding-bottom: 0.5rem;
-  color: var(--main-color);
-}
-.login-user img {
-  width: 5rem;
-  height: 5rem;
+
+.avatar {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: solid rgb(62, 58, 84) 2px;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  transition: border-color var(--transition-fast);
 }
-.circle {
-  width: 5.7rem;
-  height: 5.7rem;
-  border: solid white 1.4px;
-  background-color: white;
+
+.avatar:hover {
+  border-color: var(--accent-primary);
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #00e676; /* Green */
   border-radius: 50%;
+  border: 2px solid var(--bg-secondary);
+}
+
+.settings-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 3.4rem;
-  top: -0.5rem;
+  justify-content: center;
 }
-.fa,
-.fa-cog {
-  position: absolute;
-  top: 65%;
-  left: 87%;
-  color: var(--main-color);
-  font-size: 2.1rem;
-}
-.fa-asterisk {
-  color: var(--main-color);
-  position: absolute;
-  top: 60%;
-  left: 93%;
-  font-size: 1rem;
+
+.settings-btn:hover {
+  color: var(--accent-primary);
+  transform: rotate(90deg);
 }
 </style>
