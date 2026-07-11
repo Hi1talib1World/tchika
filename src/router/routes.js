@@ -1,37 +1,108 @@
-import home from "@/components/Home";
-import dashboard from "@/components/Dashboard";
-import blogs from "@/components/News";
-import showblog from "@/components/Media";
-import aboutus from "@/components/AboutUs";
-import contact from "@/components/Contact";
+import Dashboard from "@/components/Dashboard.vue";
+import Venues from "@/components/Venues.vue";
+import Connections from "@/components/Connections.vue";
+import EventDetail from "@/components/EventDetail.vue";
+import Messages from "@/components/Messages.vue";
+import Settings from "@/components/Settings.vue";
+import Splash from "@/components/Splash.vue";
+import Login from "@/components/Login.vue";
+import Register from "@/components/Register.vue";
 
-export default [
+// Mobile Components
+import MobileLayout from "@/components/mobile/MobileLayout.vue";
+import MobileSplash from "@/components/mobile/MobileSplash.vue";
+import MobileOnboarding from "@/components/mobile/MobileOnboarding.vue";
+import MobileHome from "@/components/mobile/MobileHome.vue";
+import MobileTheTable from "@/components/mobile/MobileTheTable.vue";
+import MobileIcebreakers from "@/components/mobile/MobileIcebreakers.vue";
+import MobileConnect from "@/components/mobile/MobileConnect.vue";
+
+const routes = [
+  {
+    path: "/splash",
+    name: "WebSplash",
+    component: Splash,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
+  },
   {
     path: "/",
-    component: home
+    name: "Dashboard",
+    component: Dashboard,
   },
   {
-    path: "/dashboard/:menu",
-    component: dashboard
+    path: "/venues",
+    name: "Venues",
+    component: Venues,
   },
   {
-    path: "/blogs",
-    component: blogs
+    path: "/connections",
+    name: "Connections",
+    component: Connections,
   },
   {
-    path: "/blog/:id/:users",
-    component: showblog
+    path: "/events/:id",
+    name: "EventDetail",
+    component: EventDetail,
   },
   {
-    path: "/aboutus",
-    component: aboutus
+    path: "/messages",
+    name: "Messages",
+    component: Messages,
   },
   {
-    path: "/team",
-    component: team
+    path: "/settings",
+    name: "Settings",
+    component: Settings,
   },
   {
-    path: "/contact",
-    component: contact
+    path: "/mobile/splash",
+    name: "MobileSplash",
+    component: MobileSplash,
+  },
+  {
+    path: "/mobile",
+    component: MobileLayout,
+    children: [
+      {
+        path: "",
+        redirect: "/mobile/home"
+      },
+      {
+        path: "onboarding",
+        name: "MobileOnboarding",
+        component: MobileOnboarding
+      },
+      {
+        path: "home",
+        name: "MobileHome",
+        component: MobileHome
+      },
+      {
+        path: "table",
+        name: "MobileTheTable",
+        component: MobileTheTable
+      },
+      {
+        path: "icebreakers",
+        name: "MobileIcebreakers",
+        component: MobileIcebreakers
+      },
+      {
+        path: "connect",
+        name: "MobileConnect",
+        component: MobileConnect
+      }
+    ]
   }
 ];
+
+export default routes;
