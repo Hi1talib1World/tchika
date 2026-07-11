@@ -1,0 +1,185 @@
+:root {
+  /* Colors - Modern Light Theme (From Design System Image) */
+  --bg-primary: #FAF7F2; /* Neutral */
+  --bg-secondary: #FFFFFF; /* White for cards */
+  --text-primary: #1E2A5E; /* Tertiary (Dark Blue) */
+  --text-secondary: #5a6691; /* Lighter shade of Tertiary */
+  
+  --accent-primary: #E25822; /* Primary (Orange) */
+  --accent-primary-hover: #C23E0E; /* Darker Orange for hover */
+  --accent-secondary: #F4A41C; /* Secondary (Yellow) */
+  
+  /* Borders and Shadows */
+  --border-color: #E5E0D8;
+  --card-shadow: 0 4px 20px rgba(30, 42, 94, 0.05);
+
+  /* Typography */
+  --font-main: 'Be Vietnam Pro', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* Card Components (Replacing Glass Panels) */
+.glass-panel {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-color);
+  /* Removing glass effects */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  margin-right: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #F0EBE1; /* Light grey/beige from image */
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: #E5E0D8;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  /* Using Inverted style from the design system image */
+  background-color: var(--text-primary);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #121A3B;
+  transform: translateY(-2px);
+}
+
+.btn-outlined {
+  background-color: transparent;
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.btn-outlined:hover {
+  background-color: var(--text-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+/* Forms */
+.input, .textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(226, 88, 34, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Helpers */
+.mb-1 { margin-bottom: var(--space-sm); }
+.mb-2 { margin-bottom: var(--space-md); }
+.mb-3 { margin-bottom: var(--space-lg); }
+.mb-4 { margin-bottom: var(--space-xl); }
